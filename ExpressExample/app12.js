@@ -11,7 +11,7 @@ var expressSession = require('express-session');
 var app = express();
 
 app.set('port', process.env.PORT || 3000);
-app.use(static(path.join(__dirname, 'public')));
+app.use('/public', static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
@@ -55,9 +55,31 @@ router.route('/process/login').post(function(req, res) {
     res.write('<h1>login success</h1>');
     res.write('<p> Id : ' + paramId + '</p>');
     res.write('<br><br><a href= "/public/product.html"> 상품 페이지 이동 </a>');
+    res.end();
   }
 
 });
+
+router.route('/process/logout').get(function(req, res) {
+  console.log('/process/logout routing function call.');
+
+  if (req.session.user) {
+    console.log('logout');
+
+    req.session.destroy(function(err) {
+      if (err) {
+        console.log('Session delete Error');
+        return;
+      }
+
+      console.log('session delete success');
+      res.redirect('/public/login2.html');
+    });
+  } else {
+    console.log('There\'s no login user');
+    res.redirect('/public/login2.html');
+  }
+})
 
 router.route('/process/setUserCookie').get(function(req, res) {
   console.log('/process/setUserCookie Routing Fucntion call');
