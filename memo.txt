@@ -1,0 +1,106 @@
+TOPCIT
+
+prototype
+prototyping
+
+프로젝트 체크포인트 : 주기적인 리뷰
+
+shadow paging
+트랜잭션의 연산으로 갱신할 필요가 있을때
+복사본인 그림자 페이지를 보관하는 기법
+트랜잭션을 취소할 때 그림자 페이지를 이용하여 회복
+log, undo, redo 할 필요가 없다
+
+ER Diagram
+
+teardrop attack : ip fragments (패킷조각)을 전송합으로써 공격
+
+ping of death :
+정상적인 크기보다 아주 크게 만들어진 패킷 전송
+
+스머프 공격 :
+공격자는 공격 대상 호스트 ip 주소로 위장하여
+icmp echo request을 특정 ip 브로드캐스트 주소로 보낸다
+
+ n명 필요 대칭키 암호화 키 개수--> n(n-1)/2
+
+WBS : Work Breakdown Structure
+목표를 단계, 활동, 작업 등 계층적으로 분류
+
+파킨슨의 법칙 : 어떤 일이든 주어진 시간이 소진될 때까지
+늘어진다
+
+PERT 차트 : 작업 계획 전 작업 간의 의존관계 보여줌
+Gannt 차트 : 작업의 병행 처리 과정 보여줌
+
+임계 경로 분석 : Critical Path Analysis
+
+위험 전가 : 아웃소싱, 패키지/라이브러리 구매
+
+서술형 1
+Student가 GamePlayer를 상속받는 것은 잘못되었다
+Fulltime_student와 Parttime_student가 Student를 상속받도록 하는 것은
+유연성에 문제가 있다
+
+서술형 2
+1) 클래스 다이어그램
+<<Entity>> 고객              <<Entity>> 주문
+-Cus_no : int                -ord_no : int
+-Cus_name : String           -ord_state : String
++ GetOrderNo (cus_no):void   +GetCusOrdNo(int cus_no):int[]
+
+2) ERD
+고객                          주문
+고객번호 : NUMBER(10) p       주문번호 : NUMBER(8) p
+고객이름 : VARCHAR2(30)       고객번호 : NUMBER(10) p
+                             고객번호 : NUMBER(10)
+
+3) DDL
+CREATE TABLE 고객(
+  고객번호  NUMBER(10) not null,
+  고객이름  VARCHAR2(30) null
+);
+
+Alter table 고객 add (primary key (고객번호));
+
+create table 주문 (
+  주문번호  number(8) not null,
+  고객번호  number(10) not null,
+  주문상태  VARCHAR2(4) null
+);
+
+Alter table 주문 add (primary key (주문번호, 고객번호));
+Alter table 고객 add (foreign key (고객번호) references 고객);
+
+트랜잭션
+ACID
+원자성 : 트랜잭션은 완전히 반영되거나 반영되지 않아야 한다
+일관성 : 시스템이 가지고 있는 고정 요소는 트랜잭션 수행 전과 수행 후의 상태가 같아야 한다
+독립성 : 하나의 트랜잭션 도중 다른 트랜잭션의 연산이 끼어들 수 없다
+지속성 : 트랜잭션을 완료한 결과는 영구적으로 반영한다
+
+트랜잭션 상태
+활동, 실패, 철회, 부분 완료, 완료
+Active, Failed, Aborted, Partially Committed, Committed
+
+즉각 갱신 기법 Immediate Update
+연기 갱신 기법 Deffered Update
+검사점 기법 Check Point
+그림자 페이지 기법 Shadow Paging
+
+
+데이터 모델링 3단계
+개념적 데이터 모델링 : 추상화 수준이 높고 전사적 데이터 모델링, EA 수립시
+  엔터티-관계 다이어그램 생성
+논리적 데이터 모델링 : key, 속성, 관계 등을 표현, 재사용성 높음
+  ERD, 정규화, 식별자 확정, M:M 관계 해소, 참조 무결성 규칙 등
+물리적 데이터 모델링 : 저장 등 물리적 성격 고려하여 설계
+
+Rational Unified Process : 객체 지향 개발 방법론
+
+데이터독립성 요소
+외부스키마 : 사용자 관점 스키마 구성
+개념스키마 : 통합 관점, 데이터와 그들간의 관계를 표현하는 스키마
+내부스키마 : 물리적 저장구조
+
+사상 Mapping
