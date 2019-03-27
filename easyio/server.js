@@ -10,7 +10,7 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 const args = parseArgs(process.argv.slice(2));
-const { name = 'default', port = '8080'} = args;
+const { name = 'default', port = '8888'} = args;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
