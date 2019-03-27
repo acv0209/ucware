@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Do it NodeJs!</h1>
+    <h3>Powerpoint Download 01 ~ 04</h3>
+    <h5>written by shlee</h5>
+  </body>
+
+
+  <!-- http://cris.joongbu.ac.kr/course/2018-2/was/ppt/chap00.ppt -->
+
+  <script type="text/javascript">
+    var url = "http://cris.joongbu.ac.kr/course/2018-2/was/ppt/chap";
+    var ext = ".ppt";
+    for (var i = 0; i <= 14; i++) {
+      var result = url;
+      if (i < 10) {
+        result = result + "0" + i + ext;
+      } else {
+        result = result + i + ext;
+      }
+      window.open(result);
+      setTimeout(function(){
+        window.close();
+      }, 3000);
+    }
+  </script>
+</html>
