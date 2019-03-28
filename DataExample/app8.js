@@ -13,9 +13,9 @@ var mysql = require('mysql');
 
 var pool = mysql.createPool({
     connectionLimit:10,
-    host:'ucband.ucwaremobile.com',
-    user:'ucware',
-    password:'uc_qw_!@#$',
+    host:'',
+    user:'',
+    password:'',
     database:'test_db',
     debug:false
 });

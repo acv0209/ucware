@@ -1,0 +1,26 @@
+디렉토리명 knex로 하면 안됨
+https://github.com/npm/npm/issues/11286
+
+npm install -g knex
+
+참고영상 및 소스
+https://www.youtube.com/playlist?list=PL7sCSgsRZ-smPRSrim4bX5TQfRue1jKfw
+https://github.com/johnazre/youtube-intro-to-knex
+
+* 참고 다큐먼트
+https://knexjs.org/
+
+
+
+외래키 참조 (영상이랑 다름)
+table.integer('user_id').unsigned().notNullable();
+table.foreign('user_id').references('id').inTable('users');
+
+제약조건이 있으면 seed 순서도 생각해서 쿼리를 실행해야 한다
+
+
+knexfile.js 에 서버 접속 정보가 들어있으므로 서버 업로드 목록에서 제거
+git .gitignore 파일 생성 및 경로 입력
+knexProject/knexfile.js
+
+https://cocomo.tistory.com/454
